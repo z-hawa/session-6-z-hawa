@@ -104,7 +104,6 @@ def test_deck_lam():
         full_list_of_cards), 'Incorrect cards using Lambda operation'
     assert len(
         session_6a.cards_deck_lambda(deck)) == 52, 'Incorrect number of cards using Lambda operation'
-test_function_doc_string()
 def test_royal_flush():
     hand = [('ace', 'hearts'), ('king', 'hearts'),
             ('queen', 'hearts'), ('10', 'hearts'), ('jack', 'hearts')]
@@ -171,10 +170,7 @@ def test_deck_cards():
     assert ALL_CARDS_PRESENT == True, "Some cards are missing!"
 
 
-def test_deck_creation_raises_error():
-    deck = 10
-    with pytest.raises(TypeError, match=r"*Invalid type provided , must be a list!*"):
-        deck = session_6a.create_deck_function(deck)
+
 
 def test_20_combos():
 
