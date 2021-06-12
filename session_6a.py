@@ -1,4 +1,3 @@
-import random
 vals = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king', 'ace']
 vals_mapped = {'2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, '10': 10, 'jack': 11, 'queen': 12,
                'king': 13, 'ace': 14}
@@ -19,6 +18,7 @@ def create_deck_function(deck: list) -> list:
 cards_deck = create_deck_function(cards_deck)
 
 cards_deck_lambda = lambda deck: list(map(lambda x: (x[0], x[1]), zip(vals * 4, suits * 13)))
+cards_deck_lambda.__doc__ == "Lambda function for creating a deck"
 
 
 def check_royal_flush(current_hand: list):
@@ -34,6 +34,7 @@ def check_royal_flush(current_hand: list):
         return True, 1
     else:
         return False, 11
+
 
 def check_straight_flush(current_hand: list) -> tuple:
     """Checks ifs the provided deck is eligible to win a straight flush"""

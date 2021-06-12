@@ -68,16 +68,6 @@ def test_readme_file_for_formatting():
     assert content.count("#") >= 10
 
 
-def test_indentations():
-    ''' Returns pass if used four spaces for each level of syntactically \
-    significant indenting.'''
-    lines = inspect.getsource(session_6a)
-    spaces = re.findall('\n +.', lines)
-    for space in spaces:
-        assert len(space) % 4 == 2, "Your script contains misplaced indentations"
-        assert len(re.sub(
-            r'[^ ]', '', space)) % 4 == 0, "Your code indentation does not follow PEP8 guidelines"
-
 
 def test_function_name_had_cap_letter():
     functions = inspect.getmembers(session_6a, inspect.isfunction)
@@ -109,7 +99,7 @@ def test_function_doc_string():
 
 
 def test_deck_lam():
-    assert set(session_6a.cards_deck_lambda) == set(
+    assert set(session_6a.cards_deck_lambda()) == set(
         full_list_of_cards), 'Incorrect cards using Lambda operation'
     assert len(
         session_6a.cards_deck_lambda) == 52, 'Incorrect number of cards using Lambda operation'
@@ -337,14 +327,3 @@ def test_20_combos():
     assert 'Player 1' in session_6a.determine_winner(
         p1, p2), "Failed."
 
-test_readme_file_for_formatting()
-test_readme_contents()
-test_readme_proper_description()
-test_readme_exists()
-test_20_combos()
-test_high_card()
-test_one_pair()
-test_two_pair()
-test_four_kind()
-test_three_kind()
-test_royal_flush()
