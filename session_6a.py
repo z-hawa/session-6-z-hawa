@@ -18,7 +18,7 @@ def create_deck_function(deck: list) -> list:
 cards_deck = create_deck_function(cards_deck)
 
 cards_deck_lambda = lambda deck: list(map(lambda x: (x[0], x[1]), zip(vals * 4, suits * 13)))
-cards_deck_lambda.__doc__ == "Lambda function for creating a deck"
+cards_deck_lambda.__doc__ = "Lambda function for creating a deck"
 
 
 def check_royal_flush(current_hand: list):

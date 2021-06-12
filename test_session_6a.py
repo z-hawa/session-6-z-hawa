@@ -95,15 +95,16 @@ def test_function_doc_string():
     """
     functions = inspect.getmembers(session_6a, inspect.isfunction)
     for function in functions:
-        assert function[1].__doc__
+            assert function[1].__doc__
 
 
 def test_deck_lam():
-    assert set(session_6a.cards_deck_lambda()) == set(
+    deck=[]
+    assert set(session_6a.cards_deck_lambda(deck)) == set(
         full_list_of_cards), 'Incorrect cards using Lambda operation'
     assert len(
-        session_6a.cards_deck_lambda) == 52, 'Incorrect number of cards using Lambda operation'
-
+        session_6a.cards_deck_lambda(deck)) == 52, 'Incorrect number of cards using Lambda operation'
+test_function_doc_string()
 def test_royal_flush():
     hand = [('ace', 'hearts'), ('king', 'hearts'),
             ('queen', 'hearts'), ('10', 'hearts'), ('jack', 'hearts')]
